@@ -3,7 +3,7 @@
 在 DSH 左侧栏（「插件」「自动化任务」那一列）加一个入口，点开是一个空白页面，居中显示 `hello world`。
 
 零宿主逻辑、零核心改动 —— 纯浏览器半边插件。也是一个**最小的 DSH 浏览器插件示例**，
-可以照它改出自己的页面
+可以照它改出自己的页面。
 
 - 零依赖、零构建：`lib/client.js` 手写 `window.__ModuleLoader__.load` 工厂，不需要 tsdown
 - 自带两层验证：`verify-client.mjs`（离线）+ `verify-e2e.mjs`（真装进 profile 真启动 web）
