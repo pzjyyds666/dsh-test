@@ -8,4 +8,4 @@
 # 声明，宿主扫描到已激活条目后自动发现。
 - insert:
     - id: hello-page
-      name: '@dsh-external/dsh-plugin-hello-page'
+      name: '测试插件'
