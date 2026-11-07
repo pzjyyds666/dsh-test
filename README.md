@@ -2,26 +2,30 @@
 
 在 DSH 左侧栏（「插件」「自动化任务」那一列）加一个入口，点开是一个空白页面，居中显示 `hello world`。
 
-零宿主逻辑、零核心改动 —— 纯浏览器半边插件。
+零宿主逻辑、零核心改动 —— 纯浏览器半边插件。也是一个**最小的 DSH 浏览器插件示例**，
+可以照它改出自己的页面。
+
+- 零依赖、零构建：`lib/client.js` 手写 `window.__ModuleLoader__.load` 工厂，不需要 tsdown
+- 自带两层验证：`verify-client.mjs`（离线）+ `verify-e2e.mjs`（真装进 profile 真启动 web）
+- 约 4.8 kB 打包体积
 
 ## 装
 
 **方式 A：本地目录（改代码即生效，适合开发）**
 
 ```sh
-dsh plugin --profile web add link:/Users/pengdawei/dsh/dsh1/dsh-plugin-hello-page
+git clone https://github.com/pzjyyds666/dsh-test.git
+dsh plugin --profile web add link:$(pwd)/dsh-test
 ```
 
 **方式 B：打包文件（适合分发给别人 / 长期保存）**
 
 ```sh
-# 在插件目录里打包
-cd /Users/pengdawei/dsh/dsh1/dsh-plugin-hello-page
+cd dsh-test
 npm pack
 # → dsh-external-dsh-plugin-hello-page-0.1.0.tgz
 
-# 装进 profile
-dsh plugin --profile web add file:/Users/pengdawei/dsh/dsh1/dsh-plugin-hello-page/dsh-external-dsh-plugin-hello-page-0.1.0.tgz
+dsh plugin --profile web add file:$(pwd)/dsh-external-dsh-plugin-hello-page-0.1.0.tgz
 ```
 
 装完**重启 `dsh web`**（新增条目必须重启）。左侧栏「自动化任务」下方会出现一个 `H` 方块，点它就是一个显示 `hello world` 的页面。
