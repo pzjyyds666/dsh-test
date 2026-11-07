@@ -1,0 +1,36 @@
+{
+  "name": "@dsh-external/dsh-plugin-hello-page",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "在左侧栏加一个入口，点开显示 hello world 的空白页面。",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "dsh.plugin.json",
+    "README.md"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-client-plugin"
+  ],
+  "license": "MIT"
+}

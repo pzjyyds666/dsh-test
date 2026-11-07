@@ -1,0 +1,14 @@
+{
+  "id": "@dsh-external/dsh-plugin-hello-page",
+  "version": "0.1.0",
+  "main": "./lib/index.js",
+  "description": "在左侧栏加一个入口，点开显示 hello world 的空白页面。",
+  "engines": { "dsh": ">=0.2.0" },
+  "client": {
+    "main": "./lib/client.js"
+  },
+  "contributes": {
+    "tools": [],
+    "skills": []
+  }
+}

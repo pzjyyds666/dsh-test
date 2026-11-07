@@ -1,0 +1,11 @@
+# 这个包作为 profile 的一层补丁：往条目树里插入宿主半边那一行。
+#
+# 有它，`dsh plugin --profile web add link:...` 就会自动把这个包
+# 追加进 profile 的 dsh.profile.bundles，启动时这一层就叠加上去。
+#
+# 注意：这一行插入的是**宿主半边**（lib/index.js）。浏览器半边
+# （lib/client.js）不在这里声明 —— 它由 package.json 的 dsh.client
+# 声明，宿主扫描到已激活条目后自动发现。
+- insert:
+    - id: hello-page
+      name: '@dsh-external/dsh-plugin-hello-page'
